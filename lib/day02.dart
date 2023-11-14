@@ -1,10 +1,6 @@
 import 'utils/utils.dart';
 
-main(List<String> args) => runSolutions(
-      (i) => i.asString(),
-      part1,
-      part2,
-    );
+main(List<String> args) => runSolutions((i) => i.asString(), part1, part2);
 
 int part1(List<String> input) => input.map(calculateP1).sum;
 
