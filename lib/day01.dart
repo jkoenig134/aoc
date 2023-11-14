@@ -2,32 +2,21 @@ import 'utils/utils.dart';
 
 main(List<String> args) => runSolutions((i) => i.raw(), part1, part2);
 
-int part1(String input) {
-  return input.split("").fold(
-        0,
-        (previousValue, element) => switch (element) {
-          '(' => previousValue + 1,
-          ')' => previousValue - 1,
-          _ => previousValue,
-        },
-      );
-}
+int part1(String input) => input.split("").fold(0, (prev, e) => move(prev, e));
 
 int part2(String input) {
-  final instructions = input.split("").toList();
-
   var floor = 0;
 
-  for (var i = 0; i < instructions.length; i++) {
-    final instruction = instructions[i];
-    floor = switch (instruction) {
-      '(' => floor + 1,
-      ')' => floor - 1,
-      _ => floor,
-    };
-
-    if (floor == -1) return i + 1;
+  for (final x in input.split("").indexed) {
+    floor = move(floor, x.$2);
+    if (floor == -1) return x.$1 + 1;
   }
 
   throw Exception("Santa never reaches the basement");
 }
+
+int move(int floor, String instruction) => switch (instruction) {
+      '(' => ++floor,
+      ')' => --floor,
+      _ => floor,
+    };
