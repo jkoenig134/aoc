@@ -1,5 +1,5 @@
-import 'dart:math';
 import 'dart:math' as math;
+import 'dart:math';
 
 import 'enums.dart';
 
@@ -13,6 +13,10 @@ extension Windowed<T> on List<T> {
 
 extension Sum on Iterable<int> {
   int get sum => reduce((a, b) => a + b);
+  int get sumOnlyPositive {
+    final result = sum;
+    return result > 0 ? result : 0;
+  }
 }
 
 extension MinMax on Iterable<int> {
