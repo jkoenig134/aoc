@@ -8,6 +8,7 @@ dependencies:
   collection: ^1.18.0
   crypto: ^3.0.3
   http: ^0.13.4
+  trotter: ^2.2.0
 
 dev_dependencies:
   lints: ^2.0.1
