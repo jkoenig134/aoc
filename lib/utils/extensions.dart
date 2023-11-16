@@ -12,7 +12,7 @@ extension Windowed<T> on List<T> {
 }
 
 extension Sum on Iterable<int> {
-  int get sum => reduce((a, b) => a + b);
+  int get sum => length == 0 ? 0 : reduce((a, b) => a + b);
   int get sumOnlyPositive {
     final result = sum;
     return result > 0 ? result : 0;
