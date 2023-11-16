@@ -58,6 +58,10 @@ extension BinaryToDecimal on String {
   int get binaryToDecimal => int.parse(this, radix: 2);
 }
 
+extension StringToNumbers on String {
+  int get asInt => int.parse(this);
+}
+
 extension FlipListOfLists<T> on List<List<T>> {
   List<List<T>> flipped() {
     List<List<T>> flipped = [];
