@@ -1,6 +1,6 @@
 import 'package:trotter/trotter.dart';
 
-import 'utils/utils.dart';
+import '/utils/utils.dart';
 
 main(List<String> args) =>
     runSolutions((i) => i.asInt().map(Container.new).toList(), part1, part2);

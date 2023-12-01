@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'utils/utils.dart';
+import '/utils/utils.dart';
 
 main(List<String> args) => runSolutions((i) => i.raw(), part1, part2);
 

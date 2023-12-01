@@ -1,4 +1,4 @@
-import 'utils/utils.dart';
+import '/utils/utils.dart';
 
 main(List<String> args) => runSolutions((i) => i.asStringList(), part1, part2);
 

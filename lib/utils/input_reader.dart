@@ -4,10 +4,10 @@ class InputReader {
   final String splitPattern;
 
   final String _input;
-  InputReader(int day, [this.splitPattern = "\n"])
-      : _input = File('./input/$day.txt').readAsStringSync();
-  InputReader.test(int day, [this.splitPattern = "\n"])
-      : _input = File('./input/$day.test.txt').readAsStringSync();
+  InputReader(int day, int year, [this.splitPattern = "\n"])
+      : _input = File('./input/$year/$day.txt').readAsStringSync();
+  InputReader.test(int day, int year, [this.splitPattern = "\n"])
+      : _input = File('./input/$year/$day.test.txt').readAsStringSync();
 
   String raw() => _input;
 

@@ -1,4 +1,4 @@
-import 'package:aoc2015/day03.dart';
+import 'package:aoc/2015/day03.dart';
 import 'package:test/test.dart';
 
 void main() {
