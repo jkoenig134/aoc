@@ -5,11 +5,11 @@ Advent of Code is a series of daily [programming puzzles](https://adventofcode.c
 ## Prerequisites for running a solution
 
 - dart is installed and in your path
-- `cookie.secret` file is present in `_archive` folder
+- `cookie.secret` file is present in `_archive` folder (format: `session=...`)
 
 ## running a solution
 
-The input for your day will automatically be fetched for you when running a solution (format: `session=...`).
+The input for your day will automatically be fetched for you when running a solution.
 
 > example for day 1 2015:
 >
