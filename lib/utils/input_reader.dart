@@ -1,13 +1,39 @@
 import 'dart:io';
 
-class InputReader {
-  final String splitPattern;
+import 'package:http/http.dart' as http;
 
-  final String _input;
-  InputReader(int day, int year, [this.splitPattern = "\n"])
-      : _input = File('./input/$year/$day.txt').readAsStringSync();
-  InputReader.test(int day, int year, [this.splitPattern = "\n"])
-      : _input = File('./input/$year/$day.test.txt').readAsStringSync();
+class InputReader {
+  final int day;
+  final int year;
+
+  final String splitPattern;
+  late final String _input;
+
+  InputReader(this.day, this.year, [this.splitPattern = "\n"]);
+
+  Future<void> init() async {
+    final inputFile = File("./input/$year/$day.txt");
+
+    if (inputFile.existsSync()) {
+      _input = inputFile.readAsStringSync();
+      return;
+    }
+
+    inputFile.createSync(recursive: true);
+
+    final cookie = File("_archive/cookie.secret").readAsStringSync();
+    final response = await http.get(
+      Uri.parse('https://adventofcode.com/$year/day/$day/input'),
+      headers: {"cookie": cookie},
+    );
+
+    String data = response.body;
+    data = data.substring(0, data.length - 1);
+
+    inputFile.writeAsStringSync(data);
+
+    _input = data;
+  }
 
   String raw() => _input;
 
