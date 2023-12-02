@@ -1,9 +1,7 @@
 import '/utils/utils.dart';
 
 main(List<String> args) => runSolutions(
-      (i) =>
-          i.asIntList(firstSplit: '\n\n', secondSplit: '\n').mapL((e) => e.sum)
-            ..sort((a, b) => b - a),
+      (i) => i.asIntList(firstSplit: '\n\n', secondSplit: '\n').mapL((e) => e.sum)..sort((a, b) => b - a),
       part1,
       part2,
     );

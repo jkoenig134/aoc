@@ -19,21 +19,14 @@ class BingoBoard {
     rows = input
         .split('\n')
         .map(
-          (e) => e
-              .replaceAll('  ', ' ')
-              .replaceFirst(RegExp('^ '), '')
-              .split(' ')
-              .map((e) => BingoField(int.parse(e)))
-              .toList(),
+          (e) => e.replaceAll('  ', ' ').replaceFirst(RegExp('^ '), '').split(' ').map((e) => BingoField(int.parse(e))).toList(),
         )
         .toList();
 
     columns = rows.flipped();
   }
 
-  bool _isWinner() =>
-      rows.any((r) => r.every((f) => f.checked)) ||
-      columns.any((c) => c.every((f) => f.checked));
+  bool _isWinner() => rows.any((r) => r.every((f) => f.checked)) || columns.any((c) => c.every((f) => f.checked));
 
   bool submitNumber(int number) {
     rows.forEach((row) => row.forEach((field) => field.submit(number)));
@@ -42,9 +35,7 @@ class BingoBoard {
     return _isWinner();
   }
 
-  int uncheckedSum() => rows
-      .map((row) => row.where((f) => !f.checked).map((f) => f.value).sum)
-      .sum;
+  int uncheckedSum() => rows.map((row) => row.where((f) => !f.checked).map((f) => f.value).sum).sum;
 }
 
 main(List<String> args) => runSolutions((i) => i.raw(), part1, part2);

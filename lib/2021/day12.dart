@@ -26,8 +26,7 @@ class Graph {
     (neighbours[v] ??= []).add(u);
   }
 
-  List<List<String>> getAllPaths(String start, String end, bool p2) =>
-      _calculatePaths(start, end, [start], p2, false);
+  List<List<String>> getAllPaths(String start, String end, bool p2) => _calculatePaths(start, end, [start], p2, false);
 
   List<List<String>> _calculatePaths(
     String currentNode,
@@ -45,9 +44,7 @@ class Graph {
     for (String n in neighbours[currentNode] ?? []) {
       final smallDuplicate = currentPath.contains(n) && n.toLowerCase() == n;
 
-      if ((n == 'start') ||
-          (smallDuplicate && !twoSmallCavesAllowed) ||
-          (smallDuplicate && enteredSmallCaveTwice)) {
+      if ((n == 'start') || (smallDuplicate && !twoSmallCavesAllowed) || (smallDuplicate && enteredSmallCaveTwice)) {
         continue;
       }
 
@@ -66,8 +63,7 @@ class Graph {
   }
 }
 
-main(List<String> args) =>
-    runSolutions((i) => Graph.fromInput(i.asString()), part1, part2);
+main(List<String> args) => runSolutions((i) => Graph.fromInput(i.asString()), part1, part2);
 
 int part1(Graph graph) => graph.getAllPaths('start', 'end', false).length;
 

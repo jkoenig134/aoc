@@ -14,12 +14,7 @@ class Point {
   int get hashCode => x.hashCode ^ y.hashCode;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is Point &&
-          runtimeType == other.runtimeType &&
-          x == other.x &&
-          y == other.y;
+  bool operator ==(Object other) => identical(this, other) || other is Point && runtimeType == other.runtimeType && x == other.x && y == other.y;
 
   Point move(String direction) => switch (direction) {
         '^' => Point(x, y + 1),

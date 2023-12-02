@@ -23,12 +23,8 @@ class FileSystem {
   final AOCFile rootDirectory = AOCFile.folder('root', {});
   FileSystem();
 
-  List<AOCFile> _getFoldersAndSubFolders(AOCFile directory) => [
-        directory,
-        ...directory.children!.values
-            .where((e) => e.isFolder)
-            .expand((e) => _getFoldersAndSubFolders(e))
-      ];
+  List<AOCFile> _getFoldersAndSubFolders(AOCFile directory) =>
+      [directory, ...directory.children!.values.where((e) => e.isFolder).expand((e) => _getFoldersAndSubFolders(e))];
 
   List<AOCFile> get allFolders => _getFoldersAndSubFolders(rootDirectory);
 
@@ -75,8 +71,7 @@ class FileSystem {
 
       switch (parts[0]) {
         case 'ls':
-          while (actualLines.length > i + 1 &&
-              !actualLines[i + 1].startsWith('\$ ')) {
+          while (actualLines.length > i + 1 && !actualLines[i + 1].startsWith('\$ ')) {
             fs.ls(actualLines[++i]);
           }
           break;
@@ -97,11 +92,6 @@ main(List<String> args) => runSolutions(
       part2,
     );
 
-int part1(FileSystem input) =>
-    input.allFolders.map((e) => e.size).where((e) => e < 100000).sum;
+int part1(FileSystem input) => input.allFolders.map((e) => e.size).where((e) => e < 100000).sum;
 
-int part2(FileSystem input) => input.allFolders
-    .map((e) => e.size)
-    .where((element) => element > input.sizeToFree(30000000))
-    .toList()
-    .reduce(min);
+int part2(FileSystem input) => input.allFolders.map((e) => e.size).where((element) => element > input.sizeToFree(30000000)).toList().reduce(min);

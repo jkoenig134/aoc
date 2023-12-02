@@ -76,8 +76,6 @@ class RPSGame {
   }
 }
 
-int part1(List<RPSGame> input) =>
-    input.map((e) => e.scoreAgainstWithOwnMoveFromString()).sum;
+int part1(List<RPSGame> input) => input.map((e) => e.scoreAgainstWithOwnMoveFromString()).sum;
 
-int part2(List<RPSGame> input) =>
-    input.map((e) => e.scoreAgainstWithWinCondition()).sum;
+int part2(List<RPSGame> input) => input.map((e) => e.scoreAgainstWithWinCondition()).sum;

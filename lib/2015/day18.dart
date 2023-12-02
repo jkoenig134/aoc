@@ -3,8 +3,7 @@ import '/utils/utils.dart';
 main(List<String> args) => runSolutions((i) => i.asStringList(), part1, part2);
 
 int part1(List<List<String>> input) => stepXTimes(input, 100);
-int part2(List<List<String>> input) =>
-    stepXTimes(input, 100, keepCornersOn: true);
+int part2(List<List<String>> input) => stepXTimes(input, 100, keepCornersOn: true);
 
 int stepXTimes(
   List<List<String>> input,
@@ -51,8 +50,7 @@ List<List<String>> step(
       );
 
       final currentState = input[x][y];
-      final onNeighbors =
-          neighbors.where((n) => input[n.$1][n.$2] == '#').length;
+      final onNeighbors = neighbors.where((n) => input[n.$1][n.$2] == '#').length;
 
       final nextState = switch ((currentState, onNeighbors)) {
         ('#', 2) || ('#', 3) => '#',

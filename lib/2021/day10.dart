@@ -80,11 +80,7 @@ main(List<String> args) => runSolutions(
 int part1(List<ChunkProcessor> input) => input.map((e) => e.corrupted()).sum;
 
 int part2(List<ChunkProcessor> input) {
-  final scores = input
-      .where((e) => !e.isCorrupted)
-      .map((e) => e.incomplete())
-      .toList()
-    ..sort();
+  final scores = input.where((e) => !e.isCorrupted).map((e) => e.incomplete()).toList()..sort();
 
   return scores[scores.length ~/ 2];
 }

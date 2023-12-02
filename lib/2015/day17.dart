@@ -2,8 +2,7 @@ import 'package:trotter/trotter.dart';
 
 import '/utils/utils.dart';
 
-main(List<String> args) =>
-    runSolutions((i) => i.asInt().map(Container.new).toList(), part1, part2);
+main(List<String> args) => runSolutions((i) => i.asInt().map(Container.new).toList(), part1, part2);
 
 class Container {
   final int size;
@@ -17,9 +16,7 @@ int part2(List<Container> input) => numberOfEggnogWithMinContainers(input, 150);
 List<List<Container>> fillEggnog(List<Container> containers, int liters) {
   final compounds = Subsets(containers)().toList();
 
-  return compounds
-      .where((c) => c.map((cnt) => cnt.size).sum == liters)
-      .toList();
+  return compounds.where((c) => c.map((cnt) => cnt.size).sum == liters).toList();
 }
 
 int numberOfEggnogWithMinContainers(List<Container> containers, int liters) {

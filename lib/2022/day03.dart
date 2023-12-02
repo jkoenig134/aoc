@@ -6,17 +6,10 @@ main(List<String> args) => runSolutions(
       part2,
     );
 
-int part1(List<String> input) => input
-    .map((e) => [e.substring(0, e.length ~/ 2), e.substring(e.length ~/ 2)])
-    .map(findSameChar)
-    .map(charToNumber)
-    .reduce((a, b) => a + b);
+int part1(List<String> input) =>
+    input.map((e) => [e.substring(0, e.length ~/ 2), e.substring(e.length ~/ 2)]).map(findSameChar).map(charToNumber).reduce((a, b) => a + b);
 
-int part2(List<String> input) => input
-    .windowedExclusive(3)
-    .map(findSameChar)
-    .map(charToNumber)
-    .reduce((a, b) => a + b);
+int part2(List<String> input) => input.windowedExclusive(3).map(findSameChar).map(charToNumber).reduce((a, b) => a + b);
 
 String findSameChar(List<String> strings) {
   for (String char in strings[0].split('')) {

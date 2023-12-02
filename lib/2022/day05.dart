@@ -46,8 +46,7 @@ class StackField {
     for (var instruction in instructions) {
       final old = stacks[instruction.from];
 
-      stacks[instruction.to]
-          .addAll(old.sublist(old.length - instruction.count));
+      stacks[instruction.to].addAll(old.sublist(old.length - instruction.count));
       stacks[instruction.from] = old.sublist(0, old.length - instruction.count);
     }
 
@@ -74,10 +73,6 @@ main(List<String> args) => runSolutions(
       part2,
     );
 
-String part1(String input) => StackField.fromString(input)
-    .runInstructionsAsCrateMover9000()
-    .generateMessageOnTop();
+String part1(String input) => StackField.fromString(input).runInstructionsAsCrateMover9000().generateMessageOnTop();
 
-String part2(String input) => StackField.fromString(input)
-    .runInstructionsAsCrateMover9001()
-    .generateMessageOnTop();
+String part2(String input) => StackField.fromString(input).runInstructionsAsCrateMover9001().generateMessageOnTop();

@@ -20,8 +20,7 @@ class Elephant {
 
   bool get isCalculated => value != null;
 
-  bool canBeCalculated(Map<String, Elephant> elephants) =>
-      elephants[fromA!]!.isCalculated && elephants[fromB!]!.isCalculated;
+  bool canBeCalculated(Map<String, Elephant> elephants) => elephants[fromA!]!.isCalculated && elephants[fromB!]!.isCalculated;
 
   void calculate(Map<String, Elephant> elephants) {
     if (isCalculated) return;

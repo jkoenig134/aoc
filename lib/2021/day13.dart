@@ -27,10 +27,7 @@ class TransparentPaper {
   TransparentPaper(String input) {
     final split = input.split('\n\n');
 
-    final points = split[0]
-        .split('\n')
-        .map((e) => e.split(','))
-        .map((e) => Point(int.parse(e[0]), int.parse(e[1])));
+    final points = split[0].split('\n').map((e) => e.split(',')).map((e) => Point(int.parse(e[0]), int.parse(e[1])));
 
     final maxX = points.map((e) => e.x).reduce(max);
     final maxY = points.map((e) => e.y).reduce(max);
@@ -38,15 +35,13 @@ class TransparentPaper {
     paper = List.generate(maxY + 1, (y) => List.generate(maxX + 1, (x) => ' '));
     points.forEach((p) => paper[p.y][p.x] = '#');
 
-    instructions =
-        split[1].split('\n').map((e) => Instruction.fromString(e)).toList();
+    instructions = split[1].split('\n').map((e) => Instruction.fromString(e)).toList();
   }
 
   TransparentPaper fold() {
     final instruction = instructions.removeAt(0);
 
-    final newPaper =
-        instruction.direction == Direction.x ? paper : paper.flipped().toList();
+    final newPaper = instruction.direction == Direction.x ? paper : paper.flipped().toList();
 
     for (var i = 0; i < newPaper.length; i++) {
       final row = newPaper[i];
@@ -65,9 +60,7 @@ class TransparentPaper {
       newPaper[i] = newRow;
     }
 
-    paper = instruction.direction == Direction.x
-        ? newPaper
-        : newPaper.flipped().toList();
+    paper = instruction.direction == Direction.x ? newPaper : newPaper.flipped().toList();
 
     return this;
   }
@@ -84,8 +77,7 @@ class TransparentPaper {
   }
 }
 
-main(List<String> args) =>
-    runSolutions((i) => TransparentPaper(i.raw()), part1, part2);
+main(List<String> args) => runSolutions((i) => TransparentPaper(i.raw()), part1, part2);
 
 int part1(TransparentPaper paper) => paper.fold().taggedFields;
 

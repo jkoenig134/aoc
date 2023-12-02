@@ -40,14 +40,10 @@ class InputReader {
   List<String> asString() => _input.split(splitPattern);
   List<int> asInt() => asString().map(int.parse).toList();
 
-  List<String> asNewlineString() =>
-      _input.split('\n\n').map((e) => e.replaceAll('\n', ' ')).toList();
+  List<String> asNewlineString() => _input.split('\n\n').map((e) => e.replaceAll('\n', ' ')).toList();
 
-  List<List<String>> asStringList({firstSplit = '\n', secondSplit = ''}) =>
-      _input.split(firstSplit).map((e) => e.split(secondSplit)).toList();
+  List<List<String>> asStringList({firstSplit = '\n', secondSplit = ''}) => _input.split(firstSplit).map((e) => e.split(secondSplit)).toList();
 
-  List<List<int>> asIntList({firstSplit = '\n', secondSplit = ''}) => _input
-      .split(firstSplit)
-      .map((e) => e.split(secondSplit).map(int.parse).toList())
-      .toList();
+  List<List<int>> asIntList({firstSplit = '\n', secondSplit = ''}) =>
+      _input.split(firstSplit).map((e) => e.split(secondSplit).map(int.parse).toList()).toList();
 }

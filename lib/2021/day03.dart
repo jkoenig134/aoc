@@ -43,8 +43,7 @@ int processLifeSupportRating(
 ) {
   int row = 0;
 
-  final copy =
-      input.map((row) => row.map((element) => element).toList()).toList();
+  final copy = input.map((row) => row.map((element) => element).toList()).toList();
 
   while (copy.length > 1) {
     final flipped = copy.flipped();

@@ -5,8 +5,7 @@ main(List<String> args) => runSolutions((i) => i.asString(), part1, part2);
 class OnOffField {
   final List<List<bool>> _field;
 
-  OnOffField()
-      : _field = List.generate(1000, (_) => List.generate(1000, (_) => false));
+  OnOffField() : _field = List.generate(1000, (_) => List.generate(1000, (_) => false));
 
   void runInstruction(String instruction) {
     if (instruction.startsWith('turn on')) {
@@ -57,8 +56,7 @@ class OnOffField {
 class BrightnessField {
   final List<List<int>> _field;
 
-  BrightnessField()
-      : _field = List.generate(1000, (_) => List.generate(1000, (_) => 0));
+  BrightnessField() : _field = List.generate(1000, (_) => List.generate(1000, (_) => 0));
 
   void runInstruction(String instruction) {
     if (instruction.startsWith('turn on')) {

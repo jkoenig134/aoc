@@ -13,8 +13,7 @@ class Reindeer {
 
   Reindeer(this._speed, this._flyTime, this._restTime);
   factory Reindeer.fromString(String input) {
-    final regex = RegExp(
-        r'\w+ can fly (\d+) km/s for (\d+) seconds, but then must rest for (\d+) seconds.');
+    final regex = RegExp(r'\w+ can fly (\d+) km/s for (\d+) seconds, but then must rest for (\d+) seconds.');
 
     final matches = regex.allMatches(input).first;
 
@@ -42,8 +41,7 @@ class Reindeer {
   }
 }
 
-int part1(List<String> input) =>
-    input.map(Reindeer.fromString).map((r) => r.distanceAfter(2503)).max;
+int part1(List<String> input) => input.map(Reindeer.fromString).map((r) => r.distanceAfter(2503)).max;
 
 int part2(List<String> input) {
   final reindeers = input.map(Reindeer.fromString).toList();
@@ -52,9 +50,7 @@ int part2(List<String> input) {
     reindeers.forEach((element) => element.raceOneSecond());
 
     final leadDistance = reindeers.map((r) => r.currentKm).max;
-    reindeers
-        .where((r) => r.currentKm == leadDistance)
-        .forEach((element) => element.points++);
+    reindeers.where((r) => r.currentKm == leadDistance).forEach((element) => element.points++);
   }
 
   return reindeers.map((r) => r.points).max;

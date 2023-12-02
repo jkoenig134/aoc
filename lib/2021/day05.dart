@@ -47,21 +47,15 @@ class Path {
     if (!includeDiagonals) return [];
 
     return [
-      for (int x = start.x, y = start.y;
-          x != end.x;
-          x += (start.x > end.x ? -1 : 1), y += (start.y > end.y ? -1 : 1))
-        Position(x, y),
+      for (int x = start.x, y = start.y; x != end.x; x += (start.x > end.x ? -1 : 1), y += (start.y > end.y ? -1 : 1)) Position(x, y),
       Position(end.x, end.y),
     ];
   }
 }
 
 int findCommonPoints(List<String> input, [bool includeDiagonals = false]) {
-  final positions = input
-      .map((line) => Path.fromString(line))
-      .map((e) => e.calculatePositions(includeDiagonals))
-      .expand((e) => e)
-      .map((e) => e.toString());
+  final positions =
+      input.map((line) => Path.fromString(line)).map((e) => e.calculatePositions(includeDiagonals)).expand((e) => e).map((e) => e.toString());
 
   final occurences = <String, int>{};
   positions.forEach(

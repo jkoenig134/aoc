@@ -11,17 +11,10 @@ class Polymerization {
   Polymerization(String input) {
     final split = input.split('\n\n');
 
-    _rules = {
-      for (final line in split[1].split('\n'))
-        line.substring(0, 2): line.substring(6)
-    };
+    _rules = {for (final line in split[1].split('\n')) line.substring(0, 2): line.substring(6)};
 
     final formula = split[0];
-    formula
-        .split('')
-        .windowed(2)
-        .map((e) => e.join())
-        .forEach((e) => _tupleCount[e] = (_tupleCount[e] ?? 0) + 1);
+    formula.split('').windowed(2).map((e) => e.join()).forEach((e) => _tupleCount[e] = (_tupleCount[e] ?? 0) + 1);
     _lastChar = formula[formula.length - 1];
   }
 
@@ -62,8 +55,7 @@ class Polymerization {
   }
 }
 
-main(List<String> args) =>
-    runSolutions((i) => Polymerization(i.raw()), part1, part2);
+main(List<String> args) => runSolutions((i) => Polymerization(i.raw()), part1, part2);
 
 int part1(Polymerization input) => input.polymerizeFor(10).calculate();
 

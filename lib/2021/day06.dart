@@ -5,10 +5,7 @@ class Swarm {
   int get numberOfFishes => fishes.sum;
 
   Swarm(String input) {
-    input
-        .split(',')
-        .map(int.parse)
-        .forEach((age) => fishes[age] = fishes[age] + 1);
+    input.split(',').map(int.parse).forEach((age) => fishes[age] = fishes[age] + 1);
   }
 
   void age() {

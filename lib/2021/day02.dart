@@ -24,8 +24,7 @@ class Instruction {
     steps = int.parse(split[1]);
   }
 
-  static List<Instruction> fromStringList(List<String> input) =>
-      input.map((line) => Instruction.fromString(line)).toList();
+  static List<Instruction> fromStringList(List<String> input) => input.map((line) => Instruction.fromString(line)).toList();
 }
 
 class Submarine {
@@ -48,16 +47,14 @@ class Submarine {
     }
   }
 
-  void applyInstructions(List<Instruction> instructions) =>
-      instructions.forEach((instruction) => move(instruction));
+  void applyInstructions(List<Instruction> instructions) => instructions.forEach((instruction) => move(instruction));
 
   int part1() => horizontal * aim;
   int part2() => horizontal * depth;
 }
 
 main(List<String> args) => runSolutions(
-      (p0) => Submarine()
-        ..applyInstructions(Instruction.fromStringList(p0.asString())),
+      (p0) => Submarine()..applyInstructions(Instruction.fromStringList(p0.asString())),
       (p0) => p0.part1(),
       (p0) => p0.part2(),
     );

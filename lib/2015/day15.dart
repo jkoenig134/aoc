@@ -61,20 +61,13 @@ int part1(List<String> input) {
 }
 
 int mixIngredients(List<({Ingredient ingredient, int teaspoons})> ingredients) {
-  final capacity = ingredients
-      .map((i) => i.ingredient.capacity * i.teaspoons)
-      .sumOnlyPositive;
+  final capacity = ingredients.map((i) => i.ingredient.capacity * i.teaspoons).sumOnlyPositive;
 
-  final durability = ingredients
-      .map((i) => i.ingredient.durability * i.teaspoons)
-      .sumOnlyPositive;
+  final durability = ingredients.map((i) => i.ingredient.durability * i.teaspoons).sumOnlyPositive;
 
-  final flavor =
-      ingredients.map((i) => i.ingredient.flavor * i.teaspoons).sumOnlyPositive;
+  final flavor = ingredients.map((i) => i.ingredient.flavor * i.teaspoons).sumOnlyPositive;
 
-  final texture = ingredients
-      .map((i) => i.ingredient.texture * i.teaspoons)
-      .sumOnlyPositive;
+  final texture = ingredients.map((i) => i.ingredient.texture * i.teaspoons).sumOnlyPositive;
 
   return capacity * durability * flavor * texture;
 }

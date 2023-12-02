@@ -3,14 +3,7 @@ import '/utils/utils.dart';
 main(List<String> args) => runSolutions((i) => i.asString(), part1, part2);
 
 int part1(List<String> input) {
-  return input
-      .map((e) => e
-          .split(' | ')[1]
-          .split(' ')
-          .map((e) => e.length)
-          .where((e) => e == 2 || e == 3 || e == 4 || e == 7)
-          .length)
-      .sum;
+  return input.map((e) => e.split(' | ')[1].split(' ').map((e) => e.length).where((e) => e == 2 || e == 3 || e == 4 || e == 7).length).sum;
 }
 
 class DigitProcessor {
@@ -44,26 +37,16 @@ class DigitProcessor {
 
     _enter(input.where((e) => e.length == 7).first, 8);
 
-    final nine = input
-        .where((e) => e.length == 6)
-        .where((e) => e.split('').toSet().containsAll(four.split('')))
-        .first;
+    final nine = input.where((e) => e.length == 6).where((e) => e.split('').toSet().containsAll(four.split(''))).first;
     _enter(nine, 9);
 
-    final zero = input
-        .where((e) => e.length == 6 && e != nine)
-        .where((e) => e.split('').toSet().containsAll(one.split('')))
-        .first;
+    final zero = input.where((e) => e.length == 6 && e != nine).where((e) => e.split('').toSet().containsAll(one.split(''))).first;
     _enter(zero, 0);
 
-    final six =
-        input.where((e) => e.length == 6 && e != nine && e != zero).first;
+    final six = input.where((e) => e.length == 6 && e != nine && e != zero).first;
     _enter(six, 6);
 
-    final three = input
-        .where((e) => e.length == 5)
-        .where((e) => e.split('').toSet().containsAll(seven.split('')))
-        .first;
+    final three = input.where((e) => e.length == 5).where((e) => e.split('').toSet().containsAll(seven.split(''))).first;
     _enter(three, 3);
 
     final five = input
@@ -84,8 +67,5 @@ class DigitProcessor {
 }
 
 int part2(List<String> input) {
-  return input
-      .map((e) => e.split(' | '))
-      .map((e) => DigitProcessor(e[0], e[1]).calculate())
-      .sum;
+  return input.map((e) => e.split(' | ')).map((e) => DigitProcessor(e[0], e[1]).calculate()).sum;
 }

@@ -54,13 +54,9 @@ class Instruction {
       final input1 = split[0];
       final input2 = split[1];
 
-      final left = int.tryParse(input1) != null
-          ? int.parse(input1)
-          : instructions[input1]!.run(instructions);
+      final left = int.tryParse(input1) != null ? int.parse(input1) : instructions[input1]!.run(instructions);
 
-      final right = int.tryParse(input2) != null
-          ? int.parse(input2)
-          : instructions[input2]!.run(instructions);
+      final right = int.tryParse(input2) != null ? int.parse(input2) : instructions[input2]!.run(instructions);
 
       final num = left & right;
       cache = num;
@@ -72,13 +68,9 @@ class Instruction {
       final input1 = split[0];
       final input2 = split[1];
 
-      final left = int.tryParse(input1) != null
-          ? int.parse(input1)
-          : instructions[input1]!.run(instructions);
+      final left = int.tryParse(input1) != null ? int.parse(input1) : instructions[input1]!.run(instructions);
 
-      final right = int.tryParse(input2) != null
-          ? int.parse(input2)
-          : instructions[input2]!.run(instructions);
+      final right = int.tryParse(input2) != null ? int.parse(input2) : instructions[input2]!.run(instructions);
 
       final num = left | right;
       cache = num;

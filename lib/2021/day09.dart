@@ -54,9 +54,7 @@ List<LowPoint> calculateBasinSize(List<List<int>> input, LowPoint lowPoint) {
     basin.addAll(calculateBasinSize(input, innerLowPoint));
   }
 
-  if (x < input.length - 1 &&
-      input[x + 1][y] > current &&
-      input[x + 1][y] < 9) {
+  if (x < input.length - 1 && input[x + 1][y] > current && input[x + 1][y] < 9) {
     final innerLowPoint = LowPoint(x + 1, y, input[x + 1][y]);
     basin.addAll(calculateBasinSize(input, innerLowPoint));
   }
@@ -66,9 +64,7 @@ List<LowPoint> calculateBasinSize(List<List<int>> input, LowPoint lowPoint) {
     basin.addAll(calculateBasinSize(input, innerLowPoint));
   }
 
-  if (y < input[x].length - 1 &&
-      input[x][y + 1] > current &&
-      input[x][y + 1] < 9) {
+  if (y < input[x].length - 1 && input[x][y + 1] > current && input[x][y + 1] < 9) {
     final innerLowPoint = LowPoint(x, y + 1, input[x][y + 1]);
     basin.addAll(calculateBasinSize(input, innerLowPoint));
   }
@@ -78,19 +74,12 @@ List<LowPoint> calculateBasinSize(List<List<int>> input, LowPoint lowPoint) {
 
 main(List<String> args) => runSolutions((i) => i.asIntList(), part1, part2);
 
-int part1(List<List<int>> input) =>
-    findLowPoints(input).map((i) => i.value + 1).sum;
+int part1(List<List<int>> input) => findLowPoints(input).map((i) => i.value + 1).sum;
 
 int part2(List<List<int>> input) {
   final lowPoints = findLowPoints(input);
 
-  final basinSizes = lowPoints
-      .map((i) => calculateBasinSize(input, i).toSet())
-      .map((i) => i.length)
-      .toList()
-    ..sort();
+  final basinSizes = lowPoints.map((i) => calculateBasinSize(input, i).toSet()).map((i) => i.length).toList()..sort();
 
-  return basinSizes
-      .sublist(basinSizes.length - 3, basinSizes.length)
-      .reduce((a, b) => a * b);
+  return basinSizes.sublist(basinSizes.length - 3, basinSizes.length).reduce((a, b) => a * b);
 }

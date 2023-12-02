@@ -66,14 +66,10 @@ class OctopusGrid {
     octoList.forEach((e) => e.increaseLightlevel());
 
     while (octoList.any((e) => e.lightLevel > 9 && !e.flashed)) {
-      octoList
-          .where((e) => e.lightLevel > 9 && !e.flashed)
-          .forEach((e) => increaseLightLevelOfSourrounding(e));
+      octoList.where((e) => e.lightLevel > 9 && !e.flashed).forEach((e) => increaseLightLevelOfSourrounding(e));
     }
 
-    return octoGrid
-        .map((e) => e.map((e) => e.reset()).where((f) => f).length)
-        .sum;
+    return octoGrid.map((e) => e.map((e) => e.reset()).where((f) => f).length).sum;
   }
 
   int synchronize() {
@@ -82,8 +78,7 @@ class OctopusGrid {
   }
 }
 
-main(List<String> args) =>
-    runSolutions((i) => OctopusGrid(i.asIntList()), part1, part2);
+main(List<String> args) => runSolutions((i) => OctopusGrid(i.asIntList()), part1, part2);
 
 int part1(OctopusGrid grid) => [for (var i = 0; i < 100; i++) grid.flash()].sum;
 

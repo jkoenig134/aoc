@@ -25,15 +25,12 @@ String increasePassword(String password) {
 }
 
 bool isPasswordValid(String password) {
-  if (password.contains('i') ||
-      password.contains('o') ||
-      password.contains('l')) return false;
+  if (password.contains('i') || password.contains('o') || password.contains('l')) return false;
 
   final twoNonOverlappingPairsRegex = RegExp(r'(\w)\1.*(\w)\2');
   if (!twoNonOverlappingPairsRegex.hasMatch(password)) return false;
 
-  final increasingStraightRegex = RegExp(
-      r'abc|bcd|cde|def|efg|fgh|ghi|hij|ijk|jkl|klm|lmn|mno|nop|opq|pqr|qrs|rst|stu|tuv|uvw|vwx|wxy|xyz');
+  final increasingStraightRegex = RegExp(r'abc|bcd|cde|def|efg|fgh|ghi|hij|ijk|jkl|klm|lmn|mno|nop|opq|pqr|qrs|rst|stu|tuv|uvw|vwx|wxy|xyz');
   if (!increasingStraightRegex.hasMatch(password)) return false;
 
   return true;

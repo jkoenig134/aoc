@@ -17,17 +17,14 @@ class Tree {
 
     while (true) {
       final valueToAlter = isOnX ? x : y;
-      final position = direction == Direction.left || direction == Direction.up
-          ? (valueToAlter - score - 1)
-          : (valueToAlter + score + 1);
+      final position = direction == Direction.left || direction == Direction.up ? (valueToAlter - score - 1) : (valueToAlter + score + 1);
 
       if (position > input.length - 1 || position < 0) {
         break;
       }
 
       score++;
-      final value =
-          isOnX ? input[y][position].height : input[position][x].height;
+      final value = isOnX ? input[y][position].height : input[position][x].height;
       if (value >= height) {
         break;
       }
@@ -36,9 +33,7 @@ class Tree {
     return score;
   }
 
-  int scenicScore(List<List<Tree>> input) => Direction.values
-      .map((e) => _scenicScore(input, e))
-      .reduce((a, b) => a * b);
+  int scenicScore(List<List<Tree>> input) => Direction.values.map((e) => _scenicScore(input, e)).reduce((a, b) => a * b);
 }
 
 main(List<String> args) => runSolutions(
@@ -74,7 +69,4 @@ int part1(List<List<Tree>> input) {
   return input.expand((e) => e).where((e) => e.visible).length;
 }
 
-int part2(List<List<Tree>> input) => input
-    .map((e) => e.map((e) => e.scenicScore(input)))
-    .expand((element) => element)
-    .reduce(max);
+int part2(List<List<Tree>> input) => input.map((e) => e.map((e) => e.scenicScore(input))).expand((element) => element).reduce(max);

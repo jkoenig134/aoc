@@ -27,7 +27,6 @@ int _dayFromProcessArgv() {
 }
 
 int _yearFromProcessArgv() {
-  final yearArgument =
-      Platform.script.pathSegments[Platform.script.pathSegments.length - 2];
+  final yearArgument = Platform.script.pathSegments[Platform.script.pathSegments.length - 2];
   return int.parse(yearArgument);
 }

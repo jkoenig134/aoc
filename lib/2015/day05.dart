@@ -6,10 +6,7 @@ int part1(List<String> input) => input.where(isStringNiceP1).length;
 
 bool isStringNiceP1(String input) {
   // It does not contain the strings ab, cd, pq, or xy, even if they are part of one of the other requirements.
-  if (input.contains('ab') ||
-      input.contains('cd') ||
-      input.contains('pq') ||
-      input.contains('xy')) {
+  if (input.contains('ab') || input.contains('cd') || input.contains('pq') || input.contains('xy')) {
     return false;
   }
 
