@@ -14,24 +14,15 @@ int getCalibration(String input) {
 int part2(List<String> input) => input.map(getCalibrationWithLetters).sum;
 
 int getCalibrationWithLetters(String input) {
-  final allMatches =
-      RegExp(r'(?=(\d|one|two|three|four|five|six|seven|eight|nine))')
-          .allMatches(input)
-          .toList();
-  final digits = allMatches.map((e) => e.group(1)!).map(
-        (e) => switch (e) {
-          'one' => '1',
-          'two' => '2',
-          'three' => '3',
-          'four' => '4',
-          'five' => '5',
-          'six' => '6',
-          'seven' => '7',
-          'eight' => '8',
-          'nine' => '9',
-          _ => e,
-        },
-      );
+  final writtenNumbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+
+  // matching numbers or written numbers in the group on position 1 (lookahead for also matching overlapping written numbers)
+  final regex = RegExp('(?=(\\d|${writtenNumbers.join("|")}))');
+  final digits = regex //
+      .allMatches(input)
+      .map((e) => e.group(1)!)
+      .map((e) => !writtenNumbers.contains(e) ? e : writtenNumbers.indexOf(e).toString())
+      .toList();
 
   final resultingNumber = '${digits.first}${digits.last}';
 
