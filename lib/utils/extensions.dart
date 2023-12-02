@@ -1,27 +1,22 @@
-import 'dart:math' as math;
 import 'dart:math';
+
+import 'package:collection/collection.dart' show IterableIntegerExtension;
 
 import 'enums.dart';
 
-extension Windowed<T> on List<T> {
-  List<List<T>> windowed(int size) =>
-      [for (int i = 0; i <= length - size; i++) sublist(i, i + size)];
+export 'package:collection/collection.dart' show IterableIntegerExtension;
 
-  List<List<T>> windowedExclusive(int size) =>
-      [for (int i = 0; i <= length - size; i += size) sublist(i, i + size)];
+extension Windowed<T> on List<T> {
+  List<List<T>> windowed(int size) => [for (int i = 0; i <= length - size; i++) sublist(i, i + size)];
+
+  List<List<T>> windowedExclusive(int size) => [for (int i = 0; i <= length - size; i += size) sublist(i, i + size)];
 }
 
 extension Sum on Iterable<int> {
-  int get sum => length == 0 ? 0 : reduce((a, b) => a + b);
   int get sumOnlyPositive {
     final result = sum;
     return result > 0 ? result : 0;
   }
-}
-
-extension MinMax on Iterable<int> {
-  int get min => reduce(math.min);
-  int get max => reduce(math.max);
 }
 
 extension MapToList<E> on Iterable<E> {
