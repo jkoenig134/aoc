@@ -31,7 +31,7 @@ class Point {
 }
 
 int part1(String input) {
-  final split = input.split("");
+  final split = input.split('');
 
   var current = Point(0, 0);
   final points = <Point>{current};
@@ -45,7 +45,7 @@ int part1(String input) {
 }
 
 int part2(String input) {
-  final split = input.split("");
+  final split = input.split('');
 
   var currentSanta = Point(0, 0);
   var currentRobot = Point(0, 0);

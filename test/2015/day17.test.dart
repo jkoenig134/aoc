@@ -2,7 +2,7 @@ import 'package:aoc/2015/day17.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test("fill eggnog", () {
+  test('fill eggnog', () {
     expect(
       fillEggnog([
         Container(20),
@@ -16,7 +16,7 @@ void main() {
     );
   });
 
-  test("number of eggnog with min containers", () {
+  test('number of eggnog with min containers', () {
     expect(
       numberOfEggnogWithMinContainers([
         Container(20),

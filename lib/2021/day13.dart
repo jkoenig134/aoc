@@ -25,21 +25,21 @@ class TransparentPaper {
   late List<List<String>> paper;
 
   TransparentPaper(String input) {
-    final split = input.split("\n\n");
+    final split = input.split('\n\n');
 
     final points = split[0]
-        .split("\n")
-        .map((e) => e.split(","))
+        .split('\n')
+        .map((e) => e.split(','))
         .map((e) => Point(int.parse(e[0]), int.parse(e[1])));
 
     final maxX = points.map((e) => e.x).reduce(max);
     final maxY = points.map((e) => e.y).reduce(max);
 
-    paper = List.generate(maxY + 1, (y) => List.generate(maxX + 1, (x) => " "));
-    points.forEach((p) => paper[p.y][p.x] = "#");
+    paper = List.generate(maxY + 1, (y) => List.generate(maxX + 1, (x) => ' '));
+    points.forEach((p) => paper[p.y][p.x] = '#');
 
     instructions =
-        split[1].split("\n").map((e) => Instruction.fromString(e)).toList();
+        split[1].split('\n').map((e) => Instruction.fromString(e)).toList();
   }
 
   TransparentPaper fold() {
@@ -57,7 +57,7 @@ class TransparentPaper {
       for (var j = 0; j < leftOver.length; j++) {
         final newRowIndex = newRow.length - 1 - j;
 
-        if (newRow[newRowIndex] == " ") {
+        if (newRow[newRowIndex] == ' ') {
           newRow[newRowIndex] = leftOver[j];
         }
       }
@@ -72,14 +72,14 @@ class TransparentPaper {
     return this;
   }
 
-  int get taggedFields => paper.map((e) => e.where((e) => e == "#").length).sum;
+  int get taggedFields => paper.map((e) => e.where((e) => e == '#').length).sum;
 
   String finishFolding() {
     while (instructions.isNotEmpty) {
       fold();
     }
 
-    final folded = paper.map((row) => row.join("")).join("\n");
+    final folded = paper.map((row) => row.join('')).join('\n');
     return '\n$folded';
   }
 }

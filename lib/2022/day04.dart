@@ -7,8 +7,8 @@ class CleaningSection {
   CleaningSection(this.leftBound, this.rightBound);
 
   CleaningSection.fromString(String string)
-      : leftBound = int.parse(string.split("-")[0]),
-        rightBound = int.parse(string.split("-")[1]);
+      : leftBound = int.parse(string.split('-')[0]),
+        rightBound = int.parse(string.split('-')[1]);
 
   bool contains(CleaningSection other) =>
       (other.leftBound >= leftBound && other.rightBound <= rightBound) ||
@@ -22,7 +22,7 @@ class CleaningSection {
 main(List<String> args) => runSolutions(
       (i) => i
           .asString()
-          .mapL((e) => e.split(",").mapL(CleaningSection.fromString)),
+          .mapL((e) => e.split(',').mapL(CleaningSection.fromString)),
       part1,
       part2,
     );

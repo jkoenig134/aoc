@@ -14,7 +14,7 @@ class Reindeer {
   Reindeer(this._speed, this._flyTime, this._restTime);
   factory Reindeer.fromString(String input) {
     final regex = RegExp(
-        r"\w+ can fly (\d+) km/s for (\d+) seconds, but then must rest for (\d+) seconds.");
+        r'\w+ can fly (\d+) km/s for (\d+) seconds, but then must rest for (\d+) seconds.');
 
     final matches = regex.allMatches(input).first;
 

@@ -13,7 +13,7 @@ class Graph {
   Graph(this.numberOfVertices);
 
   Graph.fromInput(List<String> input) {
-    final entries = input.map((e) => e.split("-"));
+    final entries = input.map((e) => e.split('-'));
 
     final uniquePoints = entries.expand((element) => element).toSet();
     numberOfVertices = uniquePoints.length;
@@ -45,7 +45,7 @@ class Graph {
     for (String n in neighbours[currentNode] ?? []) {
       final smallDuplicate = currentPath.contains(n) && n.toLowerCase() == n;
 
-      if ((n == "start") ||
+      if ((n == 'start') ||
           (smallDuplicate && !twoSmallCavesAllowed) ||
           (smallDuplicate && enteredSmallCaveTwice)) {
         continue;
@@ -69,6 +69,6 @@ class Graph {
 main(List<String> args) =>
     runSolutions((i) => Graph.fromInput(i.asString()), part1, part2);
 
-int part1(Graph graph) => graph.getAllPaths("start", "end", false).length;
+int part1(Graph graph) => graph.getAllPaths('start', 'end', false).length;
 
-int part2(Graph graph) => graph.getAllPaths("start", "end", true).length;
+int part2(Graph graph) => graph.getAllPaths('start', 'end', true).length;

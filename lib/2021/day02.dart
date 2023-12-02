@@ -7,16 +7,16 @@ class Instruction {
   late int steps;
 
   Instruction.fromString(String input) {
-    final split = input.split(" ");
+    final split = input.split(' ');
 
     switch (split[0]) {
-      case "up":
+      case 'up':
         direction = Direction.up;
         break;
-      case "down":
+      case 'down':
         direction = Direction.down;
         break;
-      case "forward":
+      case 'forward':
         direction = Direction.forward;
         break;
     }

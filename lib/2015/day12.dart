@@ -19,7 +19,7 @@ int _sumJson(dynamic json, bool ignoreRed) {
   }
 
   if (json is Map) {
-    if (ignoreRed && json.values.contains("red")) return 0;
+    if (ignoreRed && json.values.contains('red')) return 0;
     return json.values
         .map((v) => _sumJson(v, ignoreRed))
         .fold(0, (a, b) => a + b);

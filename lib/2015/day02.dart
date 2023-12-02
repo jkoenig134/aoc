@@ -5,7 +5,7 @@ main(List<String> args) => runSolutions((i) => i.asString(), part1, part2);
 int part1(List<String> input) => input.map(calculateP1).sum;
 
 int calculateP1(String input) {
-  final split = input.split("x");
+  final split = input.split('x');
 
   final l = int.parse(split[0]);
   final w = int.parse(split[1]);
@@ -18,7 +18,7 @@ int calculateP1(String input) {
 int part2(List<String> input) => input.map(calculateP2).sum;
 
 int calculateP2(String input) {
-  final split = input.split("x");
+  final split = input.split('x');
 
   final l = int.parse(split[0]);
   final w = int.parse(split[1]);

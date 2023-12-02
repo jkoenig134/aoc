@@ -19,7 +19,7 @@ class Ingredient {
 
   factory Ingredient.fromString(String input) {
     final regex = RegExp(
-      r"\w+: capacity (-?\d+), durability (-?\d+), flavor (-?\d+), texture (-?\d+), calories (-?\d+)",
+      r'\w+: capacity (-?\d+), durability (-?\d+), flavor (-?\d+), texture (-?\d+), calories (-?\d+)',
     );
 
     final match = regex.firstMatch(input)!;

@@ -9,7 +9,7 @@ class OnOffField {
       : _field = List.generate(1000, (_) => List.generate(1000, (_) => false));
 
   void runInstruction(String instruction) {
-    if (instruction.startsWith("turn on")) {
+    if (instruction.startsWith('turn on')) {
       final coords = parseCoords(instruction.substring(8));
 
       for (int x = coords.$1.$1; x <= coords.$2.$1; x++) {
@@ -17,7 +17,7 @@ class OnOffField {
           _field[x][y] = true;
         }
       }
-    } else if (instruction.startsWith("turn off")) {
+    } else if (instruction.startsWith('turn off')) {
       final coords = parseCoords(instruction.substring(9));
 
       for (int x = coords.$1.$1; x <= coords.$2.$1; x++) {
@@ -25,7 +25,7 @@ class OnOffField {
           _field[x][y] = false;
         }
       }
-    } else if (instruction.startsWith("toggle")) {
+    } else if (instruction.startsWith('toggle')) {
       final coords = parseCoords(instruction.substring(7));
 
       for (int x = coords.$1.$1; x <= coords.$2.$1; x++) {
@@ -34,14 +34,14 @@ class OnOffField {
         }
       }
     } else {
-      throw ArgumentError("Unknown instruction: $instruction");
+      throw ArgumentError('Unknown instruction: $instruction');
     }
   }
 
   ((int, int), (int, int)) parseCoords(String coords) {
-    final parts = coords.split(" through ");
-    final start = parts[0].split(",").map(int.parse).toList();
-    final end = parts[1].split(",").map(int.parse).toList();
+    final parts = coords.split(' through ');
+    final start = parts[0].split(',').map(int.parse).toList();
+    final end = parts[1].split(',').map(int.parse).toList();
     return ((start[0], start[1]), (end[0], end[1]));
   }
 
@@ -49,7 +49,7 @@ class OnOffField {
 
   void printField() {
     for (final row in _field) {
-      print(row.map((b) => b ? "#" : ".").join());
+      print(row.map((b) => b ? '#' : '.').join());
     }
   }
 }
@@ -61,7 +61,7 @@ class BrightnessField {
       : _field = List.generate(1000, (_) => List.generate(1000, (_) => 0));
 
   void runInstruction(String instruction) {
-    if (instruction.startsWith("turn on")) {
+    if (instruction.startsWith('turn on')) {
       final coords = parseCoords(instruction.substring(8));
 
       for (int x = coords.$1.$1; x <= coords.$2.$1; x++) {
@@ -69,7 +69,7 @@ class BrightnessField {
           _field[x][y] = _field[x][y] + 1;
         }
       }
-    } else if (instruction.startsWith("turn off")) {
+    } else if (instruction.startsWith('turn off')) {
       final coords = parseCoords(instruction.substring(9));
 
       for (int x = coords.$1.$1; x <= coords.$2.$1; x++) {
@@ -79,7 +79,7 @@ class BrightnessField {
           if (_field[x][y] < 0) _field[x][y] = 0;
         }
       }
-    } else if (instruction.startsWith("toggle")) {
+    } else if (instruction.startsWith('toggle')) {
       final coords = parseCoords(instruction.substring(7));
 
       for (int x = coords.$1.$1; x <= coords.$2.$1; x++) {
@@ -88,14 +88,14 @@ class BrightnessField {
         }
       }
     } else {
-      throw ArgumentError("Unknown instruction: $instruction");
+      throw ArgumentError('Unknown instruction: $instruction');
     }
   }
 
   ((int, int), (int, int)) parseCoords(String coords) {
-    final parts = coords.split(" through ");
-    final start = parts[0].split(",").map(int.parse).toList();
-    final end = parts[1].split(",").map(int.parse).toList();
+    final parts = coords.split(' through ');
+    final start = parts[0].split(',').map(int.parse).toList();
+    final end = parts[1].split(',').map(int.parse).toList();
     return ((start[0], start[1]), (end[0], end[1]));
   }
 

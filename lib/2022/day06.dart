@@ -7,12 +7,12 @@ main(List<String> args) => runSolutions(
     );
 
 int findMarkerPositon(String input, int markerSize) {
-  final windowed = input.split("").windowed(markerSize);
+  final windowed = input.split('').windowed(markerSize);
   for (var i = 0; i < windowed.length; i++) {
     if (windowed[i].allItemsUnique) return i + markerSize;
   }
 
-  throw Exception("No marker found");
+  throw Exception('No marker found');
 }
 
 int part1(String input) => findMarkerPositon(input, 4);

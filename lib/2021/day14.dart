@@ -9,16 +9,16 @@ class Polymerization {
   late String _lastChar;
 
   Polymerization(String input) {
-    final split = input.split("\n\n");
+    final split = input.split('\n\n');
 
     _rules = {
-      for (final line in split[1].split("\n"))
+      for (final line in split[1].split('\n'))
         line.substring(0, 2): line.substring(6)
     };
 
     final formula = split[0];
     formula
-        .split("")
+        .split('')
         .windowed(2)
         .map((e) => e.join())
         .forEach((e) => _tupleCount[e] = (_tupleCount[e] ?? 0) + 1);

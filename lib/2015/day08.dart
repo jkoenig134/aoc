@@ -21,7 +21,7 @@ int part2(List<String> input) {
   final codeLength = input.map((e) => e.length).sum;
 
   final escaped = input
-      .map((e) => e.replaceAll("\\", "\\\\").replaceAll("\"", "\\\""))
+      .map((e) => e.replaceAll('\\', '\\\\').replaceAll('"', '\\"'))
       .toList();
 
   final escapedLength = escaped.map((e) => e.length + 2).sum;

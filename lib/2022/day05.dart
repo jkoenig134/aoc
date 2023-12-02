@@ -7,12 +7,12 @@ class StackField {
   StackField(this.instructions, this.stacks);
 
   factory StackField.fromString(String string) {
-    final split = string.split("\n\n");
+    final split = string.split('\n\n');
 
-    final stacks = split[0].split("\n").reversed.toList();
-    final stackCount = stacks.first.split("").where((e) => e != " ").length;
+    final stacks = split[0].split('\n').reversed.toList();
+    final stackCount = stacks.first.split('').where((e) => e != ' ').length;
 
-    final instructions = split[1].split("\n").mapL(Instruction.from);
+    final instructions = split[1].split('\n').mapL(Instruction.from);
 
     final field = StackField(
       instructions,
@@ -22,7 +22,7 @@ class StackField {
     for (var line in stacks.skip(1)) {
       for (var i = 0; i < stackCount; i++) {
         final value = line[1 + (i * 4)];
-        if (value != " ") {
+        if (value != ' ') {
           field.stacks[i].add(value);
         }
       }
@@ -63,9 +63,9 @@ class Instruction {
   final int to;
 
   Instruction.from(String string)
-      : count = int.parse(string.split(" ")[1]),
-        from = int.parse(string.split(" ")[3]) - 1,
-        to = int.parse(string.split(" ")[5]) - 1;
+      : count = int.parse(string.split(' ')[1]),
+        from = int.parse(string.split(' ')[3]) - 1,
+        to = int.parse(string.split(' ')[5]) - 1;
 }
 
 main(List<String> args) => runSolutions(

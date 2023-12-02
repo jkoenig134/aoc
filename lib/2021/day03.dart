@@ -4,18 +4,18 @@ main(List<String> args) => runSolutions((i) => i.asStringList(), part1, part2);
 
 int part1(List<List<String>> input) {
   final flipped = input.flipped();
-  String epsilon = "", gamma = "";
+  String epsilon = '', gamma = '';
 
   for (final bits in flipped) {
-    final oneLength = bits.where((e) => e == "1").length;
-    final zeroLength = bits.where((e) => e == "0").length;
+    final oneLength = bits.where((e) => e == '1').length;
+    final zeroLength = bits.where((e) => e == '0').length;
 
     if (oneLength > zeroLength) {
-      epsilon += "0";
-      gamma += "1";
+      epsilon += '0';
+      gamma += '1';
     } else {
-      epsilon += "1";
-      gamma += "0";
+      epsilon += '1';
+      gamma += '0';
     }
   }
 
@@ -50,20 +50,20 @@ int processLifeSupportRating(
     final flipped = copy.flipped();
 
     final bits = flipped[row];
-    final oneLength = bits.where((element) => element == "1").length;
-    final zeroLength = bits.where((element) => element == "0").length;
+    final oneLength = bits.where((element) => element == '1').length;
+    final zeroLength = bits.where((element) => element == '0').length;
 
     if (lifeSupport == LifeSupport.co2Scrubber) {
       if (zeroLength > oneLength) {
-        copy.removeWhere((element) => element[row] == "0");
+        copy.removeWhere((element) => element[row] == '0');
       } else {
-        copy.removeWhere((element) => element[row] == "1");
+        copy.removeWhere((element) => element[row] == '1');
       }
     } else {
       if (oneLength < zeroLength) {
-        copy.removeWhere((element) => element[row] == "1");
+        copy.removeWhere((element) => element[row] == '1');
       } else {
-        copy.removeWhere((element) => element[row] == "0");
+        copy.removeWhere((element) => element[row] == '0');
       }
     }
 

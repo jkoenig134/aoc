@@ -9,10 +9,10 @@ class InputReader {
   final String splitPattern;
   late final String _input;
 
-  InputReader(this.day, this.year, [this.splitPattern = "\n"]);
+  InputReader(this.day, this.year, [this.splitPattern = '\n']);
 
   Future<void> init() async {
-    final inputFile = File("./input/$year/$day.txt");
+    final inputFile = File('./input/$year/$day.txt');
 
     if (inputFile.existsSync()) {
       _input = inputFile.readAsStringSync();
@@ -21,10 +21,10 @@ class InputReader {
 
     inputFile.createSync(recursive: true);
 
-    final cookie = File("_archive/cookie.secret").readAsStringSync();
+    final cookie = File('_archive/cookie.secret').readAsStringSync();
     final response = await http.get(
       Uri.parse('https://adventofcode.com/$year/day/$day/input'),
-      headers: {"cookie": cookie},
+      headers: {'cookie': cookie},
     );
 
     String data = response.body;
@@ -41,12 +41,12 @@ class InputReader {
   List<int> asInt() => asString().map(int.parse).toList();
 
   List<String> asNewlineString() =>
-      _input.split("\n\n").map((e) => e.replaceAll("\n", " ")).toList();
+      _input.split('\n\n').map((e) => e.replaceAll('\n', ' ')).toList();
 
-  List<List<String>> asStringList({firstSplit = "\n", secondSplit = ""}) =>
+  List<List<String>> asStringList({firstSplit = '\n', secondSplit = ''}) =>
       _input.split(firstSplit).map((e) => e.split(secondSplit)).toList();
 
-  List<List<int>> asIntList({firstSplit = "\n", secondSplit = ""}) => _input
+  List<List<int>> asIntList({firstSplit = '\n', secondSplit = ''}) => _input
       .split(firstSplit)
       .map((e) => e.split(secondSplit).map(int.parse).toList())
       .toList();

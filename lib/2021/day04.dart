@@ -17,12 +17,12 @@ class BingoBoard {
 
   BingoBoard.fromString(String input) {
     rows = input
-        .split("\n")
+        .split('\n')
         .map(
           (e) => e
-              .replaceAll("  ", " ")
-              .replaceFirst(RegExp("^ "), "")
-              .split(" ")
+              .replaceAll('  ', ' ')
+              .replaceFirst(RegExp('^ '), '')
+              .split(' ')
               .map((e) => BingoField(int.parse(e)))
               .toList(),
         )
@@ -50,9 +50,9 @@ class BingoBoard {
 main(List<String> args) => runSolutions((i) => i.raw(), part1, part2);
 
 int part1(String input) {
-  final splitted = input.split("\n\n");
+  final splitted = input.split('\n\n');
 
-  final bingoInstructions = splitted[0].split(",").map(int.parse).toList();
+  final bingoInstructions = splitted[0].split(',').map(int.parse).toList();
   splitted.removeAt(0);
 
   final bingoBoards = splitted.map((e) => BingoBoard.fromString(e)).toList();
@@ -70,9 +70,9 @@ int part1(String input) {
 }
 
 int part2(String input) {
-  final splitted = input.split("\n\n");
+  final splitted = input.split('\n\n');
 
-  final bingoInstructions = splitted[0].split(",").map(int.parse).toList();
+  final bingoInstructions = splitted[0].split(',').map(int.parse).toList();
   splitted.removeAt(0);
 
   final bingoBoards = splitted.map((e) => BingoBoard.fromString(e)).toList();

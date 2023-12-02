@@ -17,7 +17,7 @@ int stepXTimes(
     current = step(current, keepCornersOn: keepCornersOn);
   }
 
-  return current.expand((e) => e).where((e) => e == "#").length;
+  return current.expand((e) => e).where((e) => e == '#').length;
 }
 
 List<List<String>> step(
@@ -27,13 +27,13 @@ List<List<String>> step(
   final gridSize = input.length;
 
   if (keepCornersOn) {
-    input[0][0] = "#";
-    input[0][gridSize - 1] = "#";
-    input[gridSize - 1][0] = "#";
-    input[gridSize - 1][gridSize - 1] = "#";
+    input[0][0] = '#';
+    input[0][gridSize - 1] = '#';
+    input[gridSize - 1][0] = '#';
+    input[gridSize - 1][gridSize - 1] = '#';
   }
 
-  final out = List.generate(gridSize, (_) => List.filled(gridSize, "."));
+  final out = List.generate(gridSize, (_) => List.filled(gridSize, '.'));
 
   for (int x = 0; x < out.length; x++) {
     for (int y = 0; y < out.length; y++) {
@@ -52,12 +52,12 @@ List<List<String>> step(
 
       final currentState = input[x][y];
       final onNeighbors =
-          neighbors.where((n) => input[n.$1][n.$2] == "#").length;
+          neighbors.where((n) => input[n.$1][n.$2] == '#').length;
 
       final nextState = switch ((currentState, onNeighbors)) {
-        ("#", 2) || ("#", 3) => "#",
-        (".", 3) => "#",
-        _ => ".",
+        ('#', 2) || ('#', 3) => '#',
+        ('.', 3) => '#',
+        _ => '.',
       };
 
       out[x][y] = nextState;
@@ -65,10 +65,10 @@ List<List<String>> step(
   }
 
   if (keepCornersOn) {
-    out[0][0] = "#";
-    out[0][gridSize - 1] = "#";
-    out[gridSize - 1][0] = "#";
-    out[gridSize - 1][gridSize - 1] = "#";
+    out[0][0] = '#';
+    out[0][gridSize - 1] = '#';
+    out[gridSize - 1][0] = '#';
+    out[gridSize - 1][gridSize - 1] = '#';
   }
 
   return out;

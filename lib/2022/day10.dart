@@ -4,7 +4,7 @@ class Instruction {
   const Instruction._();
 
   factory Instruction(String input) {
-    if (input == "noop") return NoopInstruction();
+    if (input == 'noop') return NoopInstruction();
 
     final value = int.parse(input.substring(5));
     return AddInstruction(value);

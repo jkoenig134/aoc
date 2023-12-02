@@ -16,25 +16,25 @@ class ChunkProcessor {
     for (String character in input) {
       switch (character) {
         case '(':
-        case "[":
-        case "<":
-        case "{":
+        case '[':
+        case '<':
+        case '{':
           _queue.add(character);
           break;
         case ')':
-          if (_queue.last != "(") return _corruptionLevel = 3;
+          if (_queue.last != '(') return _corruptionLevel = 3;
           _queue.removeLast();
           break;
         case ']':
-          if (_queue.last != "[") return _corruptionLevel = 57;
+          if (_queue.last != '[') return _corruptionLevel = 57;
           _queue.removeLast();
           break;
         case '}':
-          if (_queue.last != "{") return _corruptionLevel = 1197;
+          if (_queue.last != '{') return _corruptionLevel = 1197;
           _queue.removeLast();
           break;
         case '>':
-          if (_queue.last != "<") return _corruptionLevel = 25137;
+          if (_queue.last != '<') return _corruptionLevel = 25137;
           _queue.removeLast();
           break;
       }
@@ -55,13 +55,13 @@ class ChunkProcessor {
         case '(':
           score += 1;
           break;
-        case "[":
+        case '[':
           score += 2;
           break;
-        case "{":
+        case '{':
           score += 3;
           break;
-        case "<":
+        case '<':
           score += 4;
           break;
       }

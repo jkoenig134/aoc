@@ -29,17 +29,17 @@ enum RPS {
 
   static RPS fromString(String s) {
     switch (s) {
-      case "A":
-      case "X":
+      case 'A':
+      case 'X':
         return RPS.rock;
-      case "B":
-      case "Y":
+      case 'B':
+      case 'Y':
         return RPS.paper;
-      case "C":
-      case "Z":
+      case 'C':
+      case 'Z':
         return RPS.scissors;
       default:
-        throw Exception("Unknown RPS: $s");
+        throw Exception('Unknown RPS: $s');
     }
   }
 }
@@ -64,14 +64,14 @@ class RPSGame {
 
   int scoreAgainstWithWinCondition() {
     switch (ownMove) {
-      case "X":
+      case 'X':
         return _calculateScore(opponent.beats, opponent);
-      case "Y":
+      case 'Y':
         return _calculateScore(opponent, opponent);
-      case "Z":
+      case 'Z':
         return _calculateScore(opponent.isBeatenBy, opponent);
       default:
-        throw Exception("Unknown win condition: $ownMove");
+        throw Exception('Unknown win condition: $ownMove');
     }
   }
 }

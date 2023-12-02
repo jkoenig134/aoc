@@ -23,13 +23,13 @@ class DigitProcessor {
 
   final Map<String, int> _inputMap = {};
   void _enter(String input, int number) {
-    final split = input.split("")..sort();
+    final split = input.split('')..sort();
     _inputMap[split.join()] = number;
   }
 
   String _receive(String input) {
-    final split = input.split("")..sort();
-    return _inputMap[split.join()]?.toString() ?? "NaN";
+    final split = input.split('')..sort();
+    return _inputMap[split.join()]?.toString() ?? 'NaN';
   }
 
   int calculate() {
@@ -46,13 +46,13 @@ class DigitProcessor {
 
     final nine = input
         .where((e) => e.length == 6)
-        .where((e) => e.split("").toSet().containsAll(four.split('')))
+        .where((e) => e.split('').toSet().containsAll(four.split('')))
         .first;
     _enter(nine, 9);
 
     final zero = input
         .where((e) => e.length == 6 && e != nine)
-        .where((e) => e.split("").toSet().containsAll(one.split('')))
+        .where((e) => e.split('').toSet().containsAll(one.split('')))
         .first;
     _enter(zero, 0);
 
@@ -62,14 +62,14 @@ class DigitProcessor {
 
     final three = input
         .where((e) => e.length == 5)
-        .where((e) => e.split("").toSet().containsAll(seven.split('')))
+        .where((e) => e.split('').toSet().containsAll(seven.split('')))
         .first;
     _enter(three, 3);
 
     final five = input
         .where((element) => element.length == 5 && element != three)
         .where(
-          (e) => e.split("").where((e) => !nine.split("").contains(e)).isEmpty,
+          (e) => e.split('').where((e) => !nine.split('').contains(e)).isEmpty,
         )
         .first;
     _enter(five, 5);

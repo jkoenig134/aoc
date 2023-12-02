@@ -6,7 +6,7 @@ class Swarm {
 
   Swarm(String input) {
     input
-        .split(",")
+        .split(',')
         .map(int.parse)
         .forEach((age) => fishes[age] = fishes[age] + 1);
   }

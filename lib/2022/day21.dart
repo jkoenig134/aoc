@@ -31,29 +31,29 @@ class Elephant {
     final b = elephants[fromB!]!.value!;
 
     switch (operand) {
-      case "+":
+      case '+':
         value = a + b;
         break;
-      case "-":
+      case '-':
         value = a - b;
         break;
-      case "*":
+      case '*':
         value = a * b;
         break;
-      case "/":
+      case '/':
         value = a ~/ b;
         break;
       default:
-        throw Exception("Unknown operand: $operand");
+        throw Exception('Unknown operand: $operand');
     }
   }
 
   factory Elephant.fromString(String e) {
-    final parts = e.split(": ");
+    final parts = e.split(': ');
 
     final elephant = Elephant(parts[0]);
 
-    final parts2 = parts[1].split(" ");
+    final parts2 = parts[1].split(' ');
 
     if (parts2.length == 1) {
       elephant.value = int.parse(parts2[0]);
@@ -69,13 +69,13 @@ class Elephant {
 
 int part1(List<Elephant> input) {
   final mapOfElephants = {for (var e in input) e.name: e};
-  while (!mapOfElephants["root"]!.isCalculated) {
+  while (!mapOfElephants['root']!.isCalculated) {
     mapOfElephants.values.forEach((element) {
       element.calculate(mapOfElephants);
     });
   }
 
-  return mapOfElephants["root"]!.value!;
+  return mapOfElephants['root']!.value!;
 }
 
 int part2(List<Elephant> input) {

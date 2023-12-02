@@ -6,7 +6,7 @@ Future<void> runSolutions<T>(
   T Function(InputReader) parse,
   dynamic Function(T) part1Fn,
   dynamic Function(T) part2Fn, {
-  String splitPattern = "\n",
+  String splitPattern = '\n',
 }) async {
   final day = _dayFromProcessArgv();
   final year = _yearFromProcessArgv();
@@ -15,10 +15,10 @@ Future<void> runSolutions<T>(
   await inputReader.init();
 
   final input = parse(inputReader);
-  print("""Real
+  print('''Real
   (1) ${part1Fn(input)}
   (2) ${part2Fn(input)}
-  """);
+  ''');
 }
 
 int _dayFromProcessArgv() {

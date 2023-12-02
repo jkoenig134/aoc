@@ -2,13 +2,13 @@ import 'package:aoc/2015/day05.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group("part1", () {
+  group('part1', () {
     final tests = [
-      ("ugknbfddgicrmopn", true),
-      ("aaa", true),
-      ("jchzalrnumimnmhp", false),
-      ("haegwjzuvuyypxyu", false),
-      ("dvszwmarrgswjxmb", false),
+      ('ugknbfddgicrmopn', true),
+      ('aaa', true),
+      ('jchzalrnumimnmhp', false),
+      ('haegwjzuvuyypxyu', false),
+      ('dvszwmarrgswjxmb', false),
     ];
 
     tests.forEach((t) {
@@ -18,12 +18,12 @@ void main() {
     });
   });
 
-  group("part2", () {
+  group('part2', () {
     final tests = [
-      ("qjhvhtzxzqqjkmpb", true),
-      ("xxyxx", true),
-      ("uurcxstgmygtbstg", false),
-      ("ieodomkazucvgmuy", false),
+      ('qjhvhtzxzqqjkmpb', true),
+      ('xxyxx', true),
+      ('uurcxstgmygtbstg', false),
+      ('ieodomkazucvgmuy', false),
     ];
 
     tests.forEach((t) {

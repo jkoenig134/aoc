@@ -16,12 +16,12 @@ class Path {
   late Position end;
 
   Path.fromString(String input) {
-    final split = input.split(" -> ");
+    final split = input.split(' -> ');
 
-    final startSplit = split[0].split(",");
+    final startSplit = split[0].split(',');
     start = Position(int.parse(startSplit[0]), int.parse(startSplit[1]));
 
-    final endSplit = split[1].split(",");
+    final endSplit = split[1].split(',');
     end = Position(int.parse(endSplit[0]), int.parse(endSplit[1]));
   }
 

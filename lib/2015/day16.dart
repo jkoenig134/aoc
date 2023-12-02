@@ -32,24 +32,24 @@ class Sue {
 
   factory Sue.fromString(String input) {
     final number =
-        int.parse(RegExp(r"Sue (\d+):").firstMatch(input)!.group(1)!);
+        int.parse(RegExp(r'Sue (\d+):').firstMatch(input)!.group(1)!);
 
     final children =
-        RegExp(r"children: (\d+)").firstMatch(input)?.group(1)!.asInt;
-    final cats = RegExp(r"cats: (\d+)").firstMatch(input)?.group(1)!.asInt;
+        RegExp(r'children: (\d+)').firstMatch(input)?.group(1)!.asInt;
+    final cats = RegExp(r'cats: (\d+)').firstMatch(input)?.group(1)!.asInt;
     final samoyeds =
-        RegExp(r"samoyeds: (\d+)").firstMatch(input)?.group(1)!.asInt;
+        RegExp(r'samoyeds: (\d+)').firstMatch(input)?.group(1)!.asInt;
     final pomeranians =
-        RegExp(r"pomeranians: (\d+)").firstMatch(input)?.group(1)!.asInt;
-    final akitas = RegExp(r"akitas: (\d+)").firstMatch(input)?.group(1)!.asInt;
+        RegExp(r'pomeranians: (\d+)').firstMatch(input)?.group(1)!.asInt;
+    final akitas = RegExp(r'akitas: (\d+)').firstMatch(input)?.group(1)!.asInt;
     final vizslas =
-        RegExp(r"vizslas: (\d+)").firstMatch(input)?.group(1)!.asInt;
+        RegExp(r'vizslas: (\d+)').firstMatch(input)?.group(1)!.asInt;
     final goldfish =
-        RegExp(r"goldfish: (\d+)").firstMatch(input)?.group(1)!.asInt;
-    final trees = RegExp(r"trees: (\d+)").firstMatch(input)?.group(1)!.asInt;
-    final cars = RegExp(r"cars: (\d+)").firstMatch(input)?.group(1)!.asInt;
+        RegExp(r'goldfish: (\d+)').firstMatch(input)?.group(1)!.asInt;
+    final trees = RegExp(r'trees: (\d+)').firstMatch(input)?.group(1)!.asInt;
+    final cars = RegExp(r'cars: (\d+)').firstMatch(input)?.group(1)!.asInt;
     final perfumes =
-        RegExp(r"perfumes: (\d+)").firstMatch(input)?.group(1)!.asInt;
+        RegExp(r'perfumes: (\d+)').firstMatch(input)?.group(1)!.asInt;
 
     return Sue(
       number,
