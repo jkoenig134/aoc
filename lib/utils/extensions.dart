@@ -17,6 +17,8 @@ extension Sum on Iterable<int> {
     final result = sum;
     return result > 0 ? result : 0;
   }
+
+  int get mul => length == 0 ? 0 : reduce((a, b) => a * b);
 }
 
 extension MapToList<E> on Iterable<E> {
@@ -91,5 +93,28 @@ extension ApplyDirection on Point<int> {
       case Direction.right:
         return Point(x + distance, y);
     }
+  }
+}
+
+extension Neighbors<T> on List<List<T>> {
+  List<(int, int)> neighbors(int x, int y) {
+    final gridSize = length;
+
+    final neighbors = [
+      (x - 1, y - 1),
+      (x - 1, y),
+      (x - 1, y + 1),
+      (x, y - 1),
+      (x, y + 1),
+      (x + 1, y - 1),
+      (x + 1, y),
+      (x + 1, y + 1),
+    ]
+        .where(
+          (n) => n.$1 >= 0 && n.$2 >= 0 && n.$1 < gridSize && n.$2 < gridSize,
+        )
+        .toList();
+
+    return neighbors;
   }
 }

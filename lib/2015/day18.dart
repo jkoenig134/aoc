@@ -36,18 +36,7 @@ List<List<String>> step(
 
   for (int x = 0; x < out.length; x++) {
     for (int y = 0; y < out.length; y++) {
-      final neighbors = [
-        (x - 1, y - 1),
-        (x - 1, y),
-        (x - 1, y + 1),
-        (x, y - 1),
-        (x, y + 1),
-        (x + 1, y - 1),
-        (x + 1, y),
-        (x + 1, y + 1),
-      ].where(
-        (n) => n.$1 >= 0 && n.$2 >= 0 && n.$1 < gridSize && n.$2 < gridSize,
-      );
+      final neighbors = out.neighbors(x, y);
 
       final currentState = input[x][y];
       final onNeighbors = neighbors.where((n) => input[n.$1][n.$2] == '#').length;
