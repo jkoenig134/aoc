@@ -13,4 +13,5 @@ void main(List<String> args) async {
   }
 
   await Process.run('code', [codeFilePath]);
+  await Process.run('open', ['https://adventofcode.com/$year/day/$day']);
 }
