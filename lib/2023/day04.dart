@@ -37,16 +37,16 @@ main(List<String> args) => runSolutions((i) => i.asString().map(Card.fromString)
 int part1(List<Card> input) => input.map((e) => e.points).sum;
 
 int part2(List<Card> input) {
-  final counts = {for (var e in input) e.id: (e, 1)};
+  final cardCountPerId = {for (var e in input) e.id: (e, 1)};
 
-  counts.forEach((key, value) {
+  cardCountPerId.forEach((key, value) {
     final indicesWon = List.generate(value.$1.wins, (index) => key + index + 1);
 
     indicesWon.forEach((i) {
-      final other = counts[i]!;
-      counts[i] = (other.$1, other.$2 + value.$2);
+      final other = cardCountPerId[i]!;
+      cardCountPerId[i] = (other.$1, other.$2 + value.$2);
     });
   });
 
-  return counts.entries.map((e) => e.value.$2).sum;
+  return cardCountPerId.entries.map((e) => e.value.$2).sum;
 }
