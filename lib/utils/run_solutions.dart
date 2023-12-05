@@ -15,9 +15,10 @@ Future<void> runSolutions<T>(
   await inputReader.init();
 
   final input = parse(inputReader);
+
   print('''Real
-  (1) ${part1Fn(input)}
-  (2) ${part2Fn(input)}
+  (1) ${await part1Fn(input)}
+  (2) ${await part2Fn(input)}
   ''');
 }
 
