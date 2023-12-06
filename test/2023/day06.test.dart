@@ -22,5 +22,5 @@ Distance:  9  40  200''';
     expect(single.distance, 940200);
   });
 
-  test('part 2', () async => expect(part2(testBoatRaces), 71503));
+  test('part 2', () => expect(part2(testBoatRaces), 71503));
 }
