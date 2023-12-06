@@ -86,12 +86,8 @@ int part1(Field input) => input.seeds.map(input.getLocation).min;
 Future<int> part2(Field input) async {
   final ranges = input.seeds.windowedExclusive(2)..sort((a, b) => a[0].compareTo(b[0]));
 
-  print(ranges);
-  // throw UnimplementedError();
-
-  final futures = ranges //
-      .map((e) => List.generate(e[1], (index) => e[0] + index))
-      .map((e) => Isolate.run(() => e.map(input.getLocation).min));
+  final chunks = ranges.map((e) => List.generate(e[1], (index) => e[0] + index));
+  final futures = chunks.map((e) => Isolate.run(() => e.map(input.getLocation).min));
   final ints = await Future.wait(futures.map((f) async => await f));
 
   return ints.min;
