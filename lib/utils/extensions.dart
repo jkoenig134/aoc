@@ -97,21 +97,22 @@ extension ApplyDirection on Point<int> {
 }
 
 extension Neighbors<T> on List<List<T>> {
-  List<(int, int)> neighbors(int x, int y) {
-    final gridSize = length;
+  List<(int, int)> neighbors(int x, int y, {bool includeDiagonals = true}) {
+    final maxX = length;
+    final maxY = this[0].length;
 
     final neighbors = [
-      (x - 1, y - 1),
+      if (includeDiagonals) (x - 1, y - 1),
       (x - 1, y),
-      (x - 1, y + 1),
+      if (includeDiagonals) (x - 1, y + 1),
       (x, y - 1),
       (x, y + 1),
-      (x + 1, y - 1),
+      if (includeDiagonals) (x + 1, y - 1),
       (x + 1, y),
-      (x + 1, y + 1),
+      if (includeDiagonals) (x + 1, y + 1),
     ]
         .where(
-          (n) => n.$1 >= 0 && n.$2 >= 0 && n.$1 < gridSize && n.$2 < gridSize,
+          (n) => n.$1 >= 0 && n.$2 >= 0 && n.$1 < maxY && n.$2 < maxX,
         )
         .toList();
 
