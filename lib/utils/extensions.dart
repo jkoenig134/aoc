@@ -77,6 +77,27 @@ extension FlipListOfLists<T> on List<List<T>> {
   }
 }
 
+extension DiagonalListOfLists<T> on List<List<T>> {
+  List<List<T>> diagonal() {
+    final width = this[0].length;
+    final height = length;
+
+    final lines = <List<T>>[];
+    for (int k = 0; k <= width + height - 2; k++) {
+      final line = <T>[];
+      for (int j = 0; j <= k; j++) {
+        int i = k - j;
+        if (i < height && j < width) {
+          line.add(this[i][j]);
+        }
+      }
+      lines.add(line);
+    }
+
+    return lines;
+  }
+}
+
 extension AllItemsUnique<T> on List<T> {
   bool get allItemsUnique => toSet().length == length;
 }

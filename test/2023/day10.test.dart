@@ -1,4 +1,5 @@
 import 'package:aoc/2023/day10.dart';
+import 'package:aoc/utils/utils.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -52,4 +53,18 @@ L--J.L7...LJS7F-7L7.
 ....L---J.LJ.LJLJ...''';
 
   test('part 2', () => expect(part2(part2Large.toPipeSystem()), 8));
+
+  test('diagonal', () {
+    final input = [
+      [1, 2, 3],
+      [4, 5, 6],
+    ];
+
+    expect(input.diagonal(), [
+      [1],
+      [4, 2],
+      [5, 3],
+      [6],
+    ]);
+  });
 }
