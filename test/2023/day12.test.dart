@@ -30,6 +30,6 @@ void main() {
   });
 
   test('part 2', () async {
-    expect(await part2(split), 525152);
+    expect(part2(split), 525152);
   });
 }
