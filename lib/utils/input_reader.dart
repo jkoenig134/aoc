@@ -21,7 +21,7 @@ class InputReader {
 
     inputFile.createSync(recursive: true);
 
-    final cookie = File('_archive/cookie.secret').readAsStringSync();
+    final cookie = File('.dev/cookie.secret').readAsStringSync();
     final response = await http.get(
       Uri.parse('https://adventofcode.com/$year/day/$day/input'),
       headers: {'cookie': cookie},

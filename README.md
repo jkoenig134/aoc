@@ -5,7 +5,7 @@ Advent of Code is a series of daily [programming puzzles](https://adventofcode.c
 ## Prerequisites for running a solution
 
 - dart is installed and in your path
-- `cookie.secret` file is present in `_archive` folder (format: `session=...`)
+- `cookie.secret` file is present in `.dev` folder (format: `session=...`)
 
 ## running a solution
 
@@ -17,5 +17,5 @@ The input for your day will automatically be fetched for you when running a solu
 
 ## quickstart for a new day
 
-- run `dart run _archive/daily_setup.dart` to generate the input and code files for the current day / year
-- run `dart run _archive/daily_setup.dart <day>` to generate the input and code files for a specific day in the year (e.g. replace `<day>` with `5`)
+- run `dart run .dev/daily_setup.dart` to generate the input and code files for the current day / year
+- run `dart run .dev/daily_setup.dart <day>` to generate the input and code files for a specific day in the year (e.g. replace `<day>` with `5`)
