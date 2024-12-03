@@ -12,13 +12,16 @@ void main(List<String> args) async {
     codeFile.writeAsStringSync(content);
   }
 
-  final testFilePath = 'test/$year/day$dayAsString.dart';
+  final testFilePath = 'test/$year/day$dayAsString.test.dart';
   final testFile = File(testFilePath);
   if (!testFile.existsSync()) {
     final content = File('.dev/template.test.dart').readAsStringSync();
     testFile.writeAsStringSync(content.replaceAll('%year%', year.toString()).replaceAll('%day%', dayAsString));
   }
 
-  await Process.run('code', [codeFilePath]);
-  await Process.run('open', ['https://adventofcode.com/$year/day/$day']);
+  await Future.wait([
+    Process.run('open', ['https://adventofcode.com/$year/day/$day']),
+    Process.run('code', [testFilePath]),
+    Process.run('code', [codeFilePath]),
+  ]);
 }

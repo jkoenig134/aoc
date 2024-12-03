@@ -2,7 +2,7 @@ import 'package:aoc/%year%/day%day%.dart';
 import 'package:test/test.dart';
 
 void main() {
-  final input = "";
+  final input = '';
 
   test('part 1', () {
     expect(part1(input), 0);
