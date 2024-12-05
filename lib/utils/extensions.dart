@@ -21,6 +21,10 @@ extension Sum on Iterable<int> {
   int get mul => length == 0 ? 0 : reduce((a, b) => a * b);
 }
 
+extension MiddleElement<E> on Iterable<E> {
+  E get middleElement => elementAt((length / 2).floor());
+}
+
 extension MapToList<E> on Iterable<E> {
   List<T> mapL<T>(T Function(E e) toElement) => map(toElement).toList();
 }
